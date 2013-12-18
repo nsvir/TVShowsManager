@@ -66,6 +66,6 @@ Miscellaneous
 If you have any issues, questions, suggestions;
 Let me know!! :)
 
-Autor
+Author
 =============
 Nicolas Svirchevsky.
