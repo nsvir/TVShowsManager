@@ -12,13 +12,14 @@ How To Use It ?
 ============
 
 - Put the script in the same folder that the episodes.
+
   exemple: Root > SerieA > Season1 > (SerieManager) with episodes
 
 - Execute the TVSManager.py
 
 - Follow instructions to configurate it
 
-- Done ? Enjoy! :)
+- Done ? Enjoy it! :)
 
 
 Dependencies
