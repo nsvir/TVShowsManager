@@ -51,6 +51,7 @@ What You Should Know
 ============
 
 It is developped for Windows and configured for 64 bits systems.
+
 Maybe you should have to open TVSManager.py to modify the VLC/MPC path.
 
 For the further versions: (if the script is enought used)
