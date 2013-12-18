@@ -21,6 +21,19 @@ How To Use It ?
 
 - Done ? Enjoy! :)
 
+Episode Format
+============
+
+The episode's format is very important. It's the main piece of the script.
+
+To configurer it right, here some exemples:
+
+- Season1Episode01 = Seasion1Episode,X
+
+- Episode 1 Season 2 = Episode ,X, Seasion 2
+
+- E01S2 = E,X,S2
+
 Dependencies
 ============
 
