@@ -32,12 +32,19 @@ Functions
 ============
 
 [ls | list]: list all films in the current folder
+
 [start | play | continue | load | 'Nothing' ]: play the current episode
+
 [next | avoid | jump | step]: select next episode
+
 [previous | precedent | back | prev | previous]: select previous episode
+
 [Stop | exit | quit | C^C]: stop the program
+
 [reset]: reset the config file
+
 [set <integer>]: set the episode's cursor
+
 [help]: display this doc
 
 What You Should Know
