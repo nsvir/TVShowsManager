@@ -28,7 +28,7 @@ Dependencies
 - python3.3: http://www.python.org/download/
 - Windows (for now.. sorry)
 
-Fonctions
+Functions
 ============
 
 [ls | list]: list all films in the current folder
