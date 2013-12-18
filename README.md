@@ -6,8 +6,7 @@ Created By Nicolas Svirchevsky the 17/12/2013
 
 This script helps you to manage your TV shows episodes.
 It saves your watched episode progression.
-You can easily switch between episodes.
-You can ask to load subtitles automaticly (with VLC only)
+You can easily switch between episodes and ask to load subtitles automaticly (with VLC only)
 
 How To Use It ?
 ============
