@@ -54,7 +54,7 @@ It is developped for Windows and configured for 64 bits systems.
 
 Maybe you should have to open TVSManager.py to modify the VLC/MPC path.
 
-For the further versions: (if the script is enought used)
+For further versions: (if the script is enought used)
 - Basic path autogeneration.
 - Path modifications without going in the script.
 - TVSManager.py could be placed in Root folder ans manage all series.
