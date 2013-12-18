@@ -12,7 +12,7 @@ You can ask to load subtitles automaticly (with VLC only)
 How To Use It ?
 ============
 
-- Put the script in the same folder than the episodes.
+- Put the script in the same folder that the episodes.
   exemple: Root > SerieA > Season1 > (SerieManager) with episodes
 
 - Execute the TVSManager.py
