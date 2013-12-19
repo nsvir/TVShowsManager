@@ -22,8 +22,15 @@ import sys
 # The paths can be wrong if you are in 64 or 32 bits or used a custom install
 # You should set them right :)
 
-mpc = os.path.join("C:/", "Program Files", "MPC-HC", "mpc-hc64.exe")
-vlc = os.path.join("C:/", "Program Files", "VideoLAN", "VLC", "vlc.exe")
+mpc64_32 = os.path.join("C:/", "Program Files (x86)", "MPC-HC", "mpc-hc.exe")
+mpc32 = os.path.join("C:/", "Program Files", "MPC-HC", "mpc-hc.exe")
+mpc64 = os.path.join("C:/", "Program Files", "MPC-HC", "mpc-hc64.exe")
+vlc32 = os.path.join("C:/", "Program Files (x86)", "VideoLAN", "VLC", "vlc.exe")
+vlc64 = os.path.join("C:/", "Program Files", "VideoLAN", "VLC", "vlc.exe")
+
+vlc = None #set your final vlc path here
+mpc = None #set your final mpc path here
+
 film_formats = [".avi", ".mp4"]
 save_path = "tvs_manager.save"
 mInformation = None
@@ -33,8 +40,30 @@ class information:
     subtitle = None
     useVLC = None
     episode_format = None
-    vlc = None
-    mpc = None
+    vlc = None #put your final MPC path here
+    mpc = None #put your final VLC path here
+
+    def getVlcPath(self):
+        if vlc != None:
+            self.vlc = vlc
+        elif os.path.exists(vlc64):
+            self.vlc = vlc64
+        elif os.path.exists(vlc32):
+            self.vlc = vlc32
+        else:
+            print("Could not find VLC")
+
+    def getMpcPath(self):
+        if mpc != None:
+            self.mpc = mpc
+        elif os.path.exists(mpc64):
+           self.mpc = mpc64
+        elif os.path.exists(mpc32):
+           self.mpc = mpc32
+        elif os.path.exists(mpc64_32):
+           self.mpc = mpc64_32
+        else:
+           print("Could not find MPC")
 
     def getEpisodeFormat(self, string = ""):
         items = self.episode_format
@@ -118,8 +147,10 @@ class information:
         self.setDefaultLecteur()
         if self.useVLC == True:
             self.setSubtitleMode()
+            self.getVlcPath()
         else:
             self.subtitle = False
+            self.getMpcPath()
         self.setEpisodeFormat()        
         self.setEpisodeNumber()
         saveInformation()
@@ -146,26 +177,26 @@ def getInformation():
         mInformation = information()
 
 def startFilmMPC(episode):
-    if os.path.exists(mpc) & os.path.exists(episode):
-        print("\nEpisode: ", episode, "\nLecteur: MPC")
-        return subprocess.call([mpc, "/new", "/play", "/close", "/fullscreen", episode])
+    if os.path.exists(mInformation.mpc) & os.path.exists(episode):
+        print("\nEpisode: ", episode, "\nLecteur:", mInformation.mpc)
+        return subprocess.call([mInformation.mpc, "/new", "/play", "/close", "/fullscreen", episode])
     elif os.path.exists(episode):
-        print("Could not found mpc-hc.exe: ", mpc)
-    elif os.path.exists(mpc):
+        print("Could not found mpc-hc.exe: ", mInformation.mpc)
+    elif os.path.exists(mInformation.mpc):
         print("Could not found the episode: ", episode)
     else:
         print("Error: \n" + mpc + "\n", episode)
 
 def startFilmVLC(episode):
-    if os.path.exists(vlc) & os.path.exists(episode):
-        print("\nEpisode:", episode, "\nLecteur: VLC")
+    if os.path.exists(mInformation.vlc) & os.path.exists(episode):
+        print("\nEpisode:", episode, "\nLecteur:", mInformation.vlc)
         if (mInformation.subtitle):
-            return subprocess.call([vlc, episode, "--sub-autodetect-file"])
+            return subprocess.call([mInformation.vlc, episode, "--sub-autodetect-file"])
         else:
-            return subprocess.call([vlc, episode])
+            return subprocess.call([mInformation.vlc, episode])
     elif os.path.exists(episode):
-        print("Could not find vlc.exe: ", vlc)
-    elif os.path.exists(vlc):
+        print("Could not find vlc.exe: ", mInformation.vlc)
+    elif os.path.exists(mInformation.vlc):
         print("Could not find the episode: ", episode)
     else:
         print("Error: \n" + vlc + "\n", episode)
